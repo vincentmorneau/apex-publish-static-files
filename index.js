@@ -4,6 +4,7 @@ const objectAssign = require("object-assign");
 
 var path = require('path'),
     execSync = require('child_process').execSync,
+    fs = require("fs"),
     util = require('./lib/util');
 
 var validate = function(opts) {
@@ -16,6 +17,11 @@ var validate = function(opts) {
 
     if (opts.directory == undefined) {
         console.trace("directory' is a required argument.");
+        exit = true;
+    }
+
+    if (!fs.existsSync(opts.directory)) {
+        console.trace(`Directory ${opts.directory} is not a valid path.`);
         exit = true;
     }
 

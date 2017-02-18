@@ -4,6 +4,10 @@ Allows to publish an entire local directory to Oracle APEX Shared Components.
 
 ![demo](/docs/demo.gif)
 
+## Requirements
+* [Node.js](https://nodejs.org/en/)
+* [SQLcl](http://www.oracle.com/technetwork/developer-tools/sqlcl/overview/index.html)
+
 ## Install
 ```
 npm install apex-publish-static-files

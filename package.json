@@ -2,15 +2,23 @@
     "name": "json-local-configurator",
     "version": "1.0.0",
     "author": "Vincent Morneau",
-    "description": "",
+    "description": "Allows to publish an entire local directory to Oracle APEX Shared Components.",
     "license": "MIT",
-    "keywords": [],
+    "keywords": [
+      "oracle",
+      "apex",
+      "orclapex",
+      "css",
+      "javascript",
+      "front-end",
+      "web"
+    ],
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/vincentmorneau/apex-publish-static-files.git"
     },
     "bugs": {
-        "url": ""
+        "url": "https://github.com/vincentmorneau/apex-publish-static-files/issues"
     },
     "dependencies": {
         "object-assign": "^4.1.1"
