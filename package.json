@@ -1,6 +1,6 @@
 {
   "name": "apex-publish-static-files",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Vincent Morneau",
   "description": "Allows to publish an entire local directory to Oracle APEX Shared Components.",
   "license": "MIT",
