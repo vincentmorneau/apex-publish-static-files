@@ -35,11 +35,11 @@ appID | numeric | | Application ID to export the files to
 
 ## Methods
 Name | Type | Description
---- | --- | --- | ---
+--- | --- | ---
 publish | function | Publishes the files to APEX
 
 ## Changelog
 [See changelog.](changelog.md)
 
-## Project Team
-- [Vincent Morneau](https://github.com/vincentmorneau)
+## License
+MIT © [Vincent Morneau](http://vmorneau.me)
