@@ -1,36 +1,36 @@
 {
-  "name": "apex-publish-static-files",
-  "version": "1.0.3",
-  "author": "Vincent Morneau",
-  "description": "Allows to publish an entire local directory to Oracle APEX Shared Components.",
-  "license": "MIT",
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "keywords": [
-    "oracle",
-    "apex",
-    "orclapex",
-    "css",
-    "javascript",
-    "front-end",
-    "web"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vincentmorneau/apex-publish-static-files.git"
-  },
-  "bugs": {
-    "url": "https://github.com/vincentmorneau/apex-publish-static-files/issues"
-  },
-  "dependencies": {
-    "object-assign": "^4.1.1"
-  },
-  "devDependencies": {
-    "ava": "^0.18.2",
-    "xo": "^0.18.0"
-  },
-  "xo": {
-    "ignore": "lib\\distUpload.js"
-  }
+	"name": "apex-publish-static-files",
+	"version": "1.0.3",
+	"author": "Vincent Morneau",
+	"description": "Allows to publish an entire local directory to Oracle APEX Shared Components.",
+	"license": "MIT",
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"keywords": [
+		"oracle",
+		"apex",
+		"orclapex",
+		"css",
+		"javascript",
+		"front-end",
+		"web"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vincentmorneau/apex-publish-static-files.git"
+	},
+	"bugs": {
+		"url": "https://github.com/vincentmorneau/apex-publish-static-files/issues"
+	},
+	"dependencies": {
+		"object-assign": "^4.1.1"
+	},
+	"devDependencies": {
+		"ava": "^0.18.2",
+		"xo": "^0.18.0"
+	},
+	"xo": {
+		"ignores": "lib\\distUpload.js"
+	}
 }
