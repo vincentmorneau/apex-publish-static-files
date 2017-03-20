@@ -5,7 +5,7 @@ test('publisher', t => {
 	publisher.publish({
 		sqlclPath: 'sql',
 		connectString: 'OOS_USER/oracle@localhost:50521/xe',
-		directory: 'C:\\Users\\vince\\Google Drive\\Dropbox\\GitHub\\afeb-demo\\dist',
+		directory: './lib',
 		appID: 111
 	});
 
