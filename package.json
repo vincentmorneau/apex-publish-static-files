@@ -4,6 +4,9 @@
   "author": "Vincent Morneau",
   "description": "Allows to publish an entire local directory to Oracle APEX Shared Components.",
   "license": "MIT",
+  "scripts": {
+    "test": "xo && ava"
+  },
   "keywords": [
     "oracle",
     "apex",
@@ -22,5 +25,12 @@
   },
   "dependencies": {
     "object-assign": "^4.1.1"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "xo": "^0.18.0"
+  },
+  "xo": {
+    "ignore": "lib\\distUpload.js"
   }
 }
