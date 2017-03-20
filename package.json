@@ -31,6 +31,8 @@
 		"xo": "^0.18.0"
 	},
 	"xo": {
-		"ignores": "lib\\distUpload.js"
+		"ignores": [
+			"lib/distUpload.js"
+		]
 	}
 }
