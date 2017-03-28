@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/vincentmorneau/apex-publish-static-files.svg?branch=master)](https://travis-ci.org/vincentmorneau/apex-publish-static-files) [![Dependency Status](https://david-dm.org/vincentmorneau/apex-publish-static-files.svg)](https://david-dm.org/vincentmorneau/apex-publish-static-files) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
-Allows to publish an entire local directory to Oracle APEX Shared Components.
+Allows to publish an entire local directory to Oracle APEX.
 
 ![demo](/docs/demo.gif)
 
@@ -34,6 +34,7 @@ sqlclPath | string | sql | Path to SQLcl
 connectString | string | | user/pass@server:port/sid
 directory | string | | Local directory that contains the files
 appID | numeric | | Application ID to export the files to
+filesDirectory | string | | Determines where the files should be uploaded in APEX (choices: `application`, `workspace`, `theme`)
 
 ## Methods
 Name | Type | Description

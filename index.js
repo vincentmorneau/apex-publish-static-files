@@ -41,7 +41,8 @@ module.exports = {
 	publish(opts) {
 		// Set defaults
 		opts = objectAssign({
-			sqlclPath: 'sql'
+			sqlclPath: 'sql',
+			filesDirectory: 'application'
 		}, opts);
 
 		// Validate the options
@@ -49,7 +50,13 @@ module.exports = {
 
 		// Execute the upload process
 		try {
-			console.log('Uploading to Shared Components - Application Static Files...');
+			if (opts.filesDirectory.toLowerCase() === 'theme') {
+				console.log(`Uploading to ${opts.appID} - Theme Files...`);
+			} else if (opts.filesDirectory.toLowerCase() === 'workspace') {
+				console.log(`Uploading to ${opts.appID} - Workspace Files...`);
+			} else {
+				console.log(`Uploading to ${opts.appID} - Application Static Files...`);
+			}
 
 			const childProcess = execSync(
 				opts.sqlclPath + // Sqlcl path
@@ -57,7 +64,8 @@ module.exports = {
 				' @"' + path.resolve(__dirname, 'lib/script') + '"' + // Sql to execute
 				' "' + path.resolve(__dirname, 'lib/distUpload.js') + '"' + // Param &1 (js to execute)
 				' "' + path.resolve(opts.directory) + '"' + // Param &2
-				' ' + opts.appID // Param &3
+				' ' + opts.appID + // Param &3
+				' "' + opts.filesDirectory + '"' // Param &4
 				, {
 					encoding: 'utf8'
 				}

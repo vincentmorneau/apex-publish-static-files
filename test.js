@@ -1,12 +1,36 @@
 import test from 'ava';
 import publisher from '.';
 
-test('publisher', t => {
+test('application', t => {
 	publisher.publish({
 		sqlclPath: 'sql',
 		connectString: 'OOS_USER/oracle@localhost:50521/xe',
 		directory: './lib',
 		appID: 111
+	});
+
+	t.pass();
+});
+
+test('workspace', t => {
+	publisher.publish({
+		sqlclPath: 'sql',
+		connectString: 'OOS_USER/oracle@localhost:50521/xe',
+		directory: './lib',
+		appID: 111,
+		filesDirectory: 'workspace'
+	});
+
+	t.pass();
+});
+
+test('theme', t => {
+	publisher.publish({
+		sqlclPath: 'sql',
+		connectString: 'OOS_USER/oracle@localhost:50521/xe',
+		directory: './lib',
+		appID: 111,
+		filesDirectory: 'theme'
 	});
 
 	t.pass();
