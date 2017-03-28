@@ -1,4 +1,7 @@
 # Changelog
+### 1.0.5
+- Renamed parameter filesDirectory to apexDestination
+
 ### 1.0.4
 - Adds a new parameter to choose the files destination directory in APEX (choices: `application`, `workspace`, `theme`)
 
