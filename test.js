@@ -18,7 +18,7 @@ test('workspace', t => {
 		connectString: 'OOS_USER/oracle@localhost:50521/xe',
 		directory: './lib',
 		appID: 111,
-		filesDirectory: 'workspace'
+		apexDestination: 'workspace'
 	});
 
 	t.pass();
@@ -30,7 +30,7 @@ test('theme', t => {
 		connectString: 'OOS_USER/oracle@localhost:50521/xe',
 		directory: './lib',
 		appID: 111,
-		filesDirectory: 'theme'
+		apexDestination: 'theme'
 	});
 
 	t.pass();
