@@ -23,11 +23,8 @@
   "bugs": {
     "url": "https://github.com/vincentmorneau/apex-publish-static-files/issues"
   },
-  "dependencies": {
-    "object-assign": "^4.1.1"
-  },
   "devDependencies": {
-    "ava": "^0.18.2",
+    "ava": "^0.19.1",
     "xo": "^0.18.0"
   },
   "xo": {

@@ -4,58 +4,44 @@ const path = require('path');
 const execSync = require('child_process').execSync;
 const fs = require('fs');
 
-const objectAssign = require('object-assign');
-
-const validate = function (opts) {
-	let exit = false;
-
-	if (opts.connectString === undefined) {
-		console.trace('connectString\' is a required argument.');
-		exit = true;
-	}
-
-	if (opts.directory === undefined) {
-		console.trace('directory\' is a required argument.');
-		exit = true;
-	}
-
-	if (!fs.existsSync(opts.directory)) {
-		console.trace(`Directory ${opts.directory} is not a valid path.`);
-		exit = true;
-	}
-
-	if (opts.appID === undefined) {
-		console.trace('appID\' is a required argument.');
-		exit = true;
-	}
-
-	if (exit) {
-		throw new Error();
-	}
-
-	return opts;
-};
-
 module.exports = {
 	// Validates a JSON object
 	publish(opts) {
 		// Set defaults
-		opts = objectAssign({
+		const defaults = {
 			sqlclPath: 'sql',
 			apexDestination: 'application'
-		}, opts);
+		};
+		opts = Object.assign(defaults, opts);
 
-		// Validate the options
-		opts = validate(opts);
+		// Validate arguments
+		if (typeof opts.connectString === 'undefined') {
+			throw new TypeError('connectString is required.');
+		}
+
+		if (typeof opts.directory === 'undefined') {
+			throw new TypeError('directory is a required argument.');
+		}
+
+		if (typeof opts.appID === 'undefined') {
+			throw new TypeError('appID is a required argument.');
+		}
+
+		if (!fs.existsSync(opts.directory)) {
+			throw new Error(`Directory ${opts.directory} is not a valid path.`);
+		}
 
 		// Execute the upload process
 		try {
-			if (opts.apexDestination.toLowerCase() === 'theme') {
-				console.log(`Uploading to ${opts.appID} - Theme Files...`);
-			} else if (opts.apexDestination.toLowerCase() === 'workspace') {
-				console.log(`Uploading to ${opts.appID} - Workspace Files...`);
-			} else {
-				console.log(`Uploading to ${opts.appID} - Application Static Files...`);
+			switch (opts.apexDestination.toLowerCase()) {
+				case 'theme':
+					console.log(`Uploading to ${opts.appID} - Theme Files...`);
+					break;
+				case 'workspace':
+					console.log(`Uploading to ${opts.appID} - Workspace Files...`);
+					break;
+				default:
+					console.log(`Uploading to ${opts.appID} - Application Static Files...`);
 			}
 
 			const childProcess = execSync(

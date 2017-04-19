@@ -1,8 +1,8 @@
 import test from 'ava';
-import publisher from '.';
+import _app from '.';
 
 test('application', t => {
-	publisher.publish({
+	_app.publish({
 		sqlclPath: 'sql',
 		connectString: 'OOS_USER/oracle@localhost:50521/xe',
 		directory: './lib',
@@ -13,7 +13,7 @@ test('application', t => {
 });
 
 test('workspace', t => {
-	publisher.publish({
+	_app.publish({
 		sqlclPath: 'sql',
 		connectString: 'OOS_USER/oracle@localhost:50521/xe',
 		directory: './lib',
@@ -25,7 +25,7 @@ test('workspace', t => {
 });
 
 test('theme', t => {
-	publisher.publish({
+	_app.publish({
 		sqlclPath: 'sql',
 		connectString: 'OOS_USER/oracle@localhost:50521/xe',
 		directory: './lib',
