@@ -35,3 +35,14 @@ test('theme', t => {
 
 	t.pass();
 });
+
+test('alias', t => {
+	_app.publish({
+		sqlclPath: 'sql',
+		connectString: 'OOS_USER/oracle@localhost:50521/xe',
+		directory: './lib',
+		appID: 'webpack'
+	});
+
+	t.pass();
+});

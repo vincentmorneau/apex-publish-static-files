@@ -1,4 +1,7 @@
 # Changelog
+### 1.0.8
+- Adds support for application alias
+
 ### 1.0.5
 - Renamed parameter filesDirectory to apexDestination
 
