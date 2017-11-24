@@ -1,4 +1,8 @@
 # Changelog
+### 1.1.0
+- Adds support for uploading to plugin files
+- Renamed parameter `apexDestination` for `destination`
+
 ### 1.0.8
 - Adds support for application alias
 

@@ -10,7 +10,7 @@ module.exports = {
 		// Set defaults
 		const defaults = {
 			sqlclPath: 'sql',
-			apexDestination: 'application'
+			destination: 'application'
 		};
 		opts = Object.assign(defaults, opts);
 
@@ -27,31 +27,39 @@ module.exports = {
 			throw new TypeError('appID is a required argument.');
 		}
 
+		if (opts.destination.toLowerCase() === 'plugin' && typeof opts.pluginName === 'undefined') {
+			throw new Error('pluginName is a required argument.');
+		}
+
 		if (!fs.existsSync(opts.directory)) {
 			throw new Error(`Directory ${opts.directory} is not a valid path.`);
 		}
 
 		// Execute the upload process
 		try {
-			switch (opts.apexDestination.toLowerCase()) {
+			switch (opts.destination.toLowerCase()) {
 				case 'theme':
 					console.log(`Uploading to ${opts.appID} - Theme Files...`);
 					break;
 				case 'workspace':
 					console.log(`Uploading to ${opts.appID} - Workspace Files...`);
 					break;
+				case 'plugin':
+					console.log(`Uploading to ${opts.appID} - ${opts.pluginName} - Plugin Files...`);
+					break;
 				default:
 					console.log(`Uploading to ${opts.appID} - Application Static Files...`);
 			}
 
 			const childProcess = execSync(
-				opts.sqlclPath + // Sqlcl path
+				'"' + opts.sqlclPath + '"' + // Sqlcl path
 				' ' + opts.connectString + // Connect string (user/pass@server:port/sid)
 				' @"' + path.resolve(__dirname, 'lib/script') + '"' + // Sql to execute
 				' "' + path.resolve(__dirname, 'lib/distUpload.js') + '"' + // Param &1 (js to execute)
 				' "' + path.resolve(opts.directory) + '"' + // Param &2
 				' ' + opts.appID + // Param &3
-				' "' + opts.apexDestination + '"' // Param &4
+				' "' + opts.destination + '"' + // Param &4
+				' "' + opts.pluginName + '"' // Param &5
 				, {
 					encoding: 'utf8'
 				}

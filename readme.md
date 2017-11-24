@@ -1,8 +1,12 @@
 # APEX Publish Static Files
 
-[![npm](https://img.shields.io/npm/v/apex-publish-static-files.svg)]() [![Build Status](https://travis-ci.org/vincentmorneau/apex-publish-static-files.svg?branch=master)](https://travis-ci.org/vincentmorneau/apex-publish-static-files) [![Dependency Status](https://david-dm.org/vincentmorneau/apex-publish-static-files.svg)](https://david-dm.org/vincentmorneau/apex-publish-static-files) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo) [![Greenkeeper badge](https://badges.greenkeeper.io/vincentmorneau/apex-publish-static-files.svg)](https://greenkeeper.io/)
+[![npm](https://img.shields.io/npm/v/apex-publish-static-files.svg)]() [![Build Status](https://travis-ci.org/vincentmorneau/apex-publish-static-files.svg?branch=master)](https://travis-ci.org/vincentmorneau/apex-publish-static-files) [![Dependency Status](https://david-dm.org/vincentmorneau/apex-publish-static-files.svg)](https://david-dm.org/vincentmorneau/apex-publish-static-files) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
-Publish a local directory to Oracle APEX.
+Uploads all files from a local directory to Oracle APEX. Destination can be:
+- Application Static Files
+- Workspace Static Files
+- Theme Files
+- Plugin Files
 
 ![demo](/docs/demo.gif)
 
@@ -33,7 +37,7 @@ sqlclPath | string | sql | Path to SQLcl
 connectString | string | | user/pass@server:port/sid
 directory | string | | Local directory that contains the files
 appID | numeric | | Application ID to export the files to
-apexDestination | string | | Determines where the files should be uploaded in APEX (choices: `application`, `workspace`, `theme`)
+destination | string | | Determines where the files should be uploaded in APEX (choices: `application`, `workspace`, `theme`, `plugin`)
 
 ## Methods
 Name | Type | Description

@@ -4,7 +4,7 @@ import _app from '.';
 test('application', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'OOS_USER/oracle@localhost:50521/xe',
+		connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
 		directory: './lib',
 		appID: 111
 	});
@@ -15,10 +15,10 @@ test('application', t => {
 test('workspace', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'OOS_USER/oracle@localhost:50521/xe',
+		connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
 		directory: './lib',
 		appID: 111,
-		apexDestination: 'workspace'
+		destination: 'workspace'
 	});
 
 	t.pass();
@@ -27,10 +27,10 @@ test('workspace', t => {
 test('theme', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'OOS_USER/oracle@localhost:50521/xe',
+		connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
 		directory: './lib',
 		appID: 111,
-		apexDestination: 'theme'
+		destination: 'theme'
 	});
 
 	t.pass();
@@ -39,9 +39,22 @@ test('theme', t => {
 test('alias', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'OOS_USER/oracle@localhost:50521/xe',
+		connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
 		directory: './lib',
 		appID: 'webpack'
+	});
+
+	t.pass();
+});
+
+test('plugin', t => {
+	_app.publish({
+		sqlclPath: 'sql',
+		connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
+		directory: './lib',
+		appID: 111,
+		destination: 'plugin',
+		pluginName: 'ME.VMORNEAU.ANIMAPEX'
 	});
 
 	t.pass();
