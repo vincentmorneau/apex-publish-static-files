@@ -1,5 +1,6 @@
 # Changelog
-### 1.1.0
+### 2.0.0
+- Adds Java 9 support
 - Adds support for uploading to plugin files
 - Renamed parameter `apexDestination` for `destination`
 

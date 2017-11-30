@@ -25,7 +25,7 @@ var publisher = require('apex-publish-static-files');
 
 publisher.publish({
     connectString: "user/pass@server:port/sid",
-    directory: "C:\\project\\files",
+    directory: "/Users/vmorneau/Documents/project/www",
     appID: 111
 });
 ```
@@ -33,7 +33,7 @@ publisher.publish({
 ## Options
 Name | Type | Default | Description
 --- | --- | --- | ---
-sqlclPath | string | sql | Path to SQLcl
+sqlclPath | string | sql | Path to SQLcl (example: `/Users/vmorneau/sqlcl/bin/sql`)
 connectString | string | | user/pass@server:port/sid
 directory | string | | Local directory that contains the files
 appID | numeric | | Application ID to export the files to
