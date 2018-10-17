@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const spawnSync = require('child_process').spawnSync;
+const {spawnSync} = require('child_process');
 const fs = require('fs');
 
 module.exports = {
@@ -43,7 +43,7 @@ module.exports = {
 			}, []);
 
 		if (getAllFiles(opts.directory).length === 0) {
-			console.log(`Directory is empty.`);
+			console.log('Directory is empty.');
 		} else {
 			// Execute the upload process
 			try {
@@ -80,8 +80,8 @@ module.exports = {
 
 				console.log(childProcess.stdout);
 				console.log('Files were uploaded successfully.');
-			} catch (err) {
-				console.error(err);
+			} catch (error) {
+				console.error(error);
 			}
 		}
 	}

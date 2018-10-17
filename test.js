@@ -79,8 +79,8 @@ test('invalid-path', t => {
 			directory: './demo/demo-invalid/',
 			appID: 105990
 		});
-	} catch (err) {
-		if (err instanceof Error) {
+	} catch (error) {
+		if (error instanceof Error) {
 			t.pass();
 		}
 	}
