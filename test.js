@@ -61,14 +61,20 @@ test('plugin', t => {
 });
 
 test('empty', t => {
-	_app.publish({
-		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
-		directory: './demo/demo-empty/',
-		appID: 105990
-	});
+	try {
+		_app.publish({
+			sqlclPath: 'sql',
+			connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
+			directory: './demo/demo-empty/',
+			appID: 105990
+		});
 
-	t.pass();
+		t.pass();
+	} catch (error) {
+		if (error instanceof Error) {
+			t.pass();
+		}
+	}
 });
 
 test('invalid-path', t => {
