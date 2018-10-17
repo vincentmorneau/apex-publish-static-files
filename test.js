@@ -4,9 +4,9 @@ import _app from '.';
 test('application', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
+		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
 		directory: './demo/demo-working/',
-		appID: 101
+		appID: 105990
 	});
 
 	t.pass();
@@ -15,9 +15,9 @@ test('application', t => {
 test('workspace', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
+		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
 		directory: './demo/demo-working/',
-		appID: 101,
+		appID: 105990,
 		destination: 'workspace'
 	});
 
@@ -27,9 +27,9 @@ test('workspace', t => {
 test('theme', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
+		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
 		directory: './demo/demo-working/',
-		appID: 101,
+		appID: 105990,
 		destination: 'theme'
 	});
 
@@ -39,9 +39,9 @@ test('theme', t => {
 test('alias', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
+		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
 		directory: './demo/demo-working/',
-		appID: 'demo'
+		appID: 'DEMO'
 	});
 
 	t.pass();
@@ -50,9 +50,9 @@ test('alias', t => {
 test('plugin', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
+		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
 		directory: './demo/demo-working/',
-		appID: 101,
+		appID: 105990,
 		destination: 'plugin',
 		pluginName: 'ME.VMORNEAU.ANIMAPEX'
 	});
@@ -61,27 +61,23 @@ test('plugin', t => {
 });
 
 test('empty', t => {
-	try {
-		_app.publish({
-			sqlclPath: 'sql',
-			connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
-			directory: './demo/demo-empty/',
-			appID: 101
-		});
-	} catch (err) {
-		if (err instanceof Error) {
-			t.pass();
-		}
-	}
+	_app.publish({
+		sqlclPath: 'sql',
+		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
+		directory: './demo/demo-empty/',
+		appID: 105990
+	});
+
+	t.pass();
 });
 
 test('invalid-path', t => {
 	try {
 		_app.publish({
 			sqlclPath: 'sql',
-			connectString: 'dev/dev@localhost:32122/orclpdb513.localdomain',
+			connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
 			directory: './demo/demo-invalid/',
-			appID: 101
+			appID: 105990
 		});
 	} catch (err) {
 		if (err instanceof Error) {
