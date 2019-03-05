@@ -38,15 +38,15 @@ module.exports = {
 		const getAllFiles = (files, dir) => {
 			if (fs.lstatSync(dir).isDirectory()) {
 				fs.readdirSync(dir).forEach(file => {
-					let fullPath = path.join(dir, file);
+					const fullPath = path.join(dir, file);
 					getAllFiles(files, fullPath);
 				});
 			} else {
 				files.push(dir);
 			}
-		}
+		};
 
-		let files = [];
+		const files = [];
 		getAllFiles(files, opts.directory);
 
 		if (files.length === 0) {
