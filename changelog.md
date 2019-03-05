@@ -1,4 +1,7 @@
 # Changelog
+### 2.0.1
+- The `directory` parameter may be a file path as well as a directory
+
 ### 2.0.0
 - Adds Java 9 support
 - Adds support for uploading to plugin files
