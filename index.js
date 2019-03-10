@@ -35,14 +35,21 @@ module.exports = {
 			throw new Error(`Directory ${opts.directory} is not a valid path.`);
 		}
 
-		const getAllFiles = dir =>
-			fs.readdirSync(dir).reduce((files, file) => {
-				const name = path.join(dir, file);
-				const isDirectory = fs.statSync(name).isDirectory();
-				return isDirectory ? [...files, ...getAllFiles(name)] : [...files, name];
-			}, []);
+		const getAllFiles = (files, dir) => {
+			if (fs.lstatSync(dir).isDirectory()) {
+				fs.readdirSync(dir).forEach(file => {
+					const fullPath = path.join(dir, file);
+					getAllFiles(files, fullPath);
+				});
+			} else {
+				files.push(dir);
+			}
+		};
 
-		if (getAllFiles(opts.directory).length === 0) {
+		const files = [];
+		getAllFiles(files, opts.directory);
+
+		if (files.length === 0) {
 			console.log('Directory is empty.');
 		} else {
 			// Execute the upload process
