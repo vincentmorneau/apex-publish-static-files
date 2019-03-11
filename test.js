@@ -4,9 +4,9 @@ import _app from '.';
 test('application', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
+		connectString: 'dev/dev@localhost:51182/XEPDB1',
 		directory: './demo/demo-working/',
-		appID: 105990
+		appID: 101
 	});
 
 	t.pass();
@@ -15,9 +15,9 @@ test('application', t => {
 test('workspace', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
+		connectString: 'dev/dev@localhost:51182/XEPDB1',
 		directory: './demo/demo-working/',
-		appID: 105990,
+		appID: 101,
 		destination: 'workspace'
 	});
 
@@ -27,9 +27,9 @@ test('workspace', t => {
 test('theme', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
+		connectString: 'dev/dev@localhost:51182/XEPDB1',
 		directory: './demo/demo-working/',
-		appID: 105990,
+		appID: 101,
 		destination: 'theme'
 	});
 
@@ -39,9 +39,9 @@ test('theme', t => {
 test('alias', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
+		connectString: 'dev/dev@localhost:51182/XEPDB1',
 		directory: './demo/demo-working/',
-		appID: 'DEMO'
+		appID: 'PUBLISH'
 	});
 
 	t.pass();
@@ -50,9 +50,9 @@ test('alias', t => {
 test('plugin', t => {
 	_app.publish({
 		sqlclPath: 'sql',
-		connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
+		connectString: 'dev/dev@localhost:51182/XEPDB1',
 		directory: './demo/demo-working/',
-		appID: 105990,
+		appID: 101,
 		destination: 'plugin',
 		pluginName: 'ME.VMORNEAU.ANIMAPEX'
 	});
@@ -64,9 +64,9 @@ test('empty', t => {
 	try {
 		_app.publish({
 			sqlclPath: 'sql',
-			connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
+			connectString: 'dev/dev@localhost:51182/XEPDB1',
 			directory: './demo/demo-empty/',
-			appID: 105990
+			appID: 101
 		});
 
 		t.pass();
@@ -81,13 +81,24 @@ test('invalid-path', t => {
 	try {
 		_app.publish({
 			sqlclPath: 'sql',
-			connectString: 'dev/dev@localhost:32122/orclpdb1810.localdomain',
+			connectString: 'dev/dev@localhost:51182/XEPDB1',
 			directory: './demo/demo-invalid/',
-			appID: 105990
+			appID: 101
 		});
 	} catch (error) {
 		if (error instanceof Error) {
 			t.pass();
 		}
 	}
+});
+
+test('file', t => {
+	_app.publish({
+		sqlclPath: 'sql',
+		connectString: 'dev/dev@localhost:51182/XEPDB1',
+		directory: './demo/demo-working/js/app.js',
+		appID: 101
+	});
+
+	t.pass();
 });
