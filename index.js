@@ -1,7 +1,9 @@
 'use strict';
 
 const path = require('path');
-const {spawnSync} = require('child_process');
+const {
+	spawnSync
+} = require('child_process');
 const fs = require('fs');
 
 module.exports = {
@@ -79,11 +81,15 @@ module.exports = {
 				];
 
 				const childProcess = spawnSync(
-					opts.sqlclPath, // Sqlcl path
+					opts.sqlclPath, // SQLcl path
 					spawnOpts, {
 						encoding: 'utf8'
 					}
 				);
+
+				if (childProcess.error) {
+					throw childProcess.error;
+				}
 
 				console.log(childProcess.stdout);
 				console.log('Files were uploaded successfully.');
