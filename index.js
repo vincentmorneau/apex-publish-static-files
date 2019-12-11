@@ -87,12 +87,28 @@ module.exports = {
 					}
 				);
 
-				if (childProcess.error) {
-					throw childProcess.error;
-				}
+				if (childProcess.error || (childProcess.stdout && childProcess.stdout.includes('Error Message'))) {
+					console.error('Files could not be uploaded.');
 
-				console.log(childProcess.stdout);
-				console.log('Files were uploaded successfully.');
+					/* eslint complexity: ["error", 21] */
+					/* eslint max-depth: ["error", 5] */
+
+					if (childProcess.error) {
+						if (childProcess.error.errno && childProcess.error.path) {
+							console.error(childProcess.error.errno, childProcess.error.path);
+						} else if (childProcess.error.errno) {
+							console.error(childProcess.error.errno);
+						} else {
+							console.error(childProcess.error);
+						}
+					}
+
+					if (childProcess.stdout && childProcess.stdout.includes('Error Message')) {
+						console.error(childProcess.stdout);
+					}
+				} else {
+					console.log('Files were uploaded successfully.');
+				}
 			} catch (error) {
 				console.error(error);
 			}
