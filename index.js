@@ -107,6 +107,7 @@ module.exports = {
 						console.error(childProcess.stdout);
 					}
 				} else {
+					console.error(childProcess.stdout);
 					console.log('Files were uploaded successfully.');
 				}
 			} catch (error) {
