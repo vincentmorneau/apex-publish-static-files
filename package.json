@@ -24,8 +24,8 @@
     "url": "https://github.com/vincentmorneau/apex-publish-static-files/issues"
   },
   "devDependencies": {
-    "ava": "^2.4.0",
-    "xo": "^0.25.3"
+    "ava": "^3.11.1",
+    "xo": "^0.33.0"
   },
   "xo": {
     "ignores": [
