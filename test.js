@@ -1,5 +1,5 @@
-import test from 'ava';
-import _app from '.';
+const test = require('ava');
+const _app = require('.');
 
 test('application', t => {
 	_app.publish({
