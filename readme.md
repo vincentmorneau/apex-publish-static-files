@@ -23,6 +23,9 @@ npm install apex-publish-static-files
 ```javascript
 var publisher = require('apex-publish-static-files');
 
+// If connecting to OCI (Oracle cloud) need to specify location of Oracle Wallet
+process.env['TNS_ADMIN'] = '/Users/vmorneau/oracle/wallets/atp01';
+
 publisher.publish({
     connectString: "user/pass@server:port/sid",
     directory: "/Users/vmorneau/Documents/project/www",
