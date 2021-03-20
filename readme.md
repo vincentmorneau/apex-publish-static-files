@@ -8,11 +8,9 @@ Uploads all files from a local directory or a single file to Oracle APEX. Destin
 - Theme Files
 - Plugin Files
 
-![demo](/docs/demo.gif)
-
 ## Requirements
 * [Node.js](https://nodejs.org/en/)
-* [SQLcl](http://www.oracle.com/technetwork/developer-tools/sqlcl/overview/index.html)
+* [Oracle Instant Client](https://www.oracle.com/ca-en/database/technologies/instant-client/downloads.html)
 
 ## Install
 ```
@@ -27,7 +25,10 @@ var publisher = require('apex-publish-static-files');
 process.env['TNS_ADMIN'] = '/Users/vmorneau/oracle/wallets/atp01';
 
 publisher.publish({
-    connectString: "user/pass@server:port/sid",
+    libDir: "/Users/vmorneau/Oracle/instantclient_19_8",
+	username: "vmorneau",
+	password: "xxxxxx",
+	connectionString: "localhost:1521/servicename",
     directory: "/Users/vmorneau/Documents/project/www",
     appID: 111
 });
@@ -36,8 +37,10 @@ publisher.publish({
 ## Options
 Name | Type | Default | Description
 --- | --- | --- | ---
-sqlclPath | string | sql | Path to SQLcl (example: `/Users/vmorneau/sqlcl/bin/sql`)
-connectString | string | | user/pass@server:port/sid
+libDir | string | | Path to Oracle Instant Client (example: `/Users/vmorneau/Oracle/instantclient_19_8`)
+username | string | | Database user
+password | string | | Database password
+connectionString | string | | Database connection string
 directory | string | | Local directory that contains the files or file path
 appID | numeric | | Application ID to export the files to
 destination | string | | Determines where the files should be uploaded in APEX (choices: `application`, `workspace`, `theme`, `plugin`)
